@@ -2,8 +2,6 @@
 
 
 <br>
-We publish several terraform modules.
-<br>
 This terraform module is used to create EKS cluster and related resources for container workload deployment on AWS Cloud.
 
 
@@ -11,7 +9,7 @@ This terraform module is used to create EKS cluster and related resources for co
 
 ```hcl
 module "eks" {
-  source = "gitlab.com/sq-ia/aws/eks.git"
+  source = "saturnops/eks/aws"
     name = "SKAF"
     environment = "production"  
     cluster_enabled_log_types = ["api","scheduler"]
@@ -20,13 +18,13 @@ module "eks" {
     cluster_endpoint_public_access = true
     cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
     vpc_id = "vpc-06e37f0786b7eskaf"
-    private_subnet_ids = ["subnet-00exyzd5df967d21w","subnet-0c4abcd5aedxyzaea"]
-    kms_key_arn            = "arn:aws:kms:us-east-2:222222222222:key/kms_key_arn"
+    private_subnet_ids    = ["subnet-00exyzd5df967d21w","subnet-0c4abcd5aedxyzaea"]
+    kms_key_arn           = "arn:aws:kms:us-east-2:222222222222:key/kms_key_arn"
     kms_policy_arn        = "arn:aws:iam::222222222222:policy/kms_policy_arn"
 }
 
 module "managed_node_group_production" {
-    source = "gitlab.com/sq-ia/aws/eks.git//node-groups/managed-nodegroup"
+    source = "saturnops/eks/aws//node-groups/managed-nodegroup"
     name                  = "SKAF"
     environment           = "production"
     eks_cluster_id        = "production-cluster"
@@ -34,7 +32,7 @@ module "managed_node_group_production" {
     subnet_ids            = ["subnet-00exyzd5df967d21w"]
     worker_iam_role_arn   = "arn:aws:iam::222222222222:role/worker_iam_role_arn"
     worker_iam_role_name  = "worker_iam_role_name"
-    kms_key_arn            = "arn:aws:kms:us-east-2:222222222222:key/kms_key_arn"
+    kms_key_arn           = "arn:aws:kms:us-east-2:222222222222:key/kms_key_arn"
     kms_policy_arn        = "arn:aws:iam::222222222222:policy/kms_policy_arn"
     desired_size          = 1
     max_size              = 3
@@ -46,9 +44,9 @@ module "managed_node_group_production" {
 }
 
 ```
-
+Refer [examples](https://github.com/saturnops/terraform-aws-eks/tree/main/examples/complete) for more details.
 ## IAM Permissions
-The required IAM permissions to create resources from this module can be found [here](https://gitlab.com/sq-ia/aws/eks/-/blob/v1.0.0/IAM.md)
+The required IAM permissions to create resources from this module can be found [here](https://github.com/saturnops/terraform-aws-eks/blob/main/IAM.md)
 
 ## Secure Configuration
 
@@ -121,34 +119,7 @@ The required IAM permissions to create resources from this module can be found [
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 
-To contribute to a project, you can typically:
 
-  1. Find the repository on a platform like GitHub
-  2. Fork the repository to your own account
-  3. Make changes to the code
-  4. Submit a pull request to the original repository
-
-
-  4. Contributing to the project can be a great way to get involved and get help. The maintainers and other contributors may be more likely to help you if you're already making contributions to the project.
-
-## Our Other Projects
-
-We have a number of other projects that you might be interested in:
-
-  1. [terraform-aws-vpc](https://github.com/saturnops/terraform-aws-vpc): Terraform module to create Networking resources for workload deployment on AWS Cloud.
-
-  2. [terraform-aws-keypair](https://github.com/saturnops/terraform-aws-keypair): Terraform module which creates EC2 key pair on AWS. The private key will be stored on SSM.
-
-     Follow Us:
-
-     To stay updated on our projects and future release, follow us on
-     [GitHub](https://github.com/saturnops/),
-     [LinkedIn](https://www.linkedin.com/company/saturnops-technologies-pvt-ltd/)
-
-     By joining our both the [email](https://github.com/saturnops) and [Slack community](https://github.com/saturnops), you can benefit from the different ways in which we provide support. You can receive timely notifications and updates through email and engage in real-time conversations and discussions with other members through Slack. This combination of resources can help you stay informed, get help when you need it, and contribute to the project in a meaningful way.  
-
-## Security, Validation and pull-requests
-we have offered here high standard, quality code. Hence we are using several [pre-commit hooks](.pre-commit-config.yaml) and [GitHub Actions](https://gitlab.com/sq-ia/aws/eks/-/tree/v1.0.0#security-validation-and-pull-requests) as a workflow. So here we will create pull-requests to any branch and validate the request automatically using pre-commit tool.
 
 
 
