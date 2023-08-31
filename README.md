@@ -114,7 +114,6 @@ Please use this KMS key policy for encrypting cloudwatch log group. Change the a
     ]
 }
 ```
-## EKS-BOOTSTRAP
 
 
 ## Secure Configuration
