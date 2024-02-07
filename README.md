@@ -2,7 +2,7 @@
 
 
 <br>
-This module simplifies the deployment of EKS clusters with dual stack mode for Cluster IP family like IPv6 and IPv4, allowing users to quickly create and manage a production-grade Kubernetes cluster on AWS. The module is highly configurable, allowing users to customize various aspects of the EKS cluster, such as the Kubernetes version, worker node instance type, number of worker nodes, and now with added support for EKS version 1.27.
+●   This module streamlines the deployment of EKS clusters with dual stack mode for both <strong>IPv6</strong> and <strong>IPv4</strong>, enabling quick creation and management of production-grade Kubernetes clusters on AWS. It is highly configurable, allowing customization of the Kubernetes version, worker node instance type, and the number of worker nodes, with added support for EKS version 1.28. <br>
 <br>
 ●   A new feature simplifies cluster setup by allowing users to create a default node group if the <strong>default_addon_enabled</strong> value is set. The module now integrates default addons like <strong>CoreDNS</strong>, <strong>Kube-proxy</strong>, <strong>VPC CNI</strong>, and <strong>EBS CSI Driver</strong>, ensuring essential components are included for optimal performance and functionality from the start.  <br>
 <br>
@@ -24,7 +24,7 @@ module "eks" {
   instance_types                       = ["t3a.large", "t2.large", "t2.xlarge", "t3.large", "m5.large"]
   environment                          = "prod"
   kms_key_arn                          = "arn:aws:kms:us-east-2:222222222222:key/kms_key_arn"
-  cluster_version                      = "1.27"
+  cluster_version                      = "1.28"
   cluster_log_types                    = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   private_subnet_ids                   = ["subnet-abc123" , "subnet-xyz12324"]
   cluster_log_retention_in_days        = 30
@@ -143,8 +143,8 @@ In this module, we have implemented the followingchecks for EKS:
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_eks_addon"></a> [eks\_addon](#module\_eks\_addon) | terraform-aws-modules/eks/aws | 19.15.2 |
-| <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | 19.15.2 |
+| <a name="module_eks_addon"></a> [eks\_addon](#module\_eks\_addon) | terraform-aws-modules/eks/aws | 19.21.0 |
+| <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | 19.21.0 |
 
 ## Resources
 
