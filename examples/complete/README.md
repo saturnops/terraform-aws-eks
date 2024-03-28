@@ -27,8 +27,6 @@ This directory contains a complete example that demonstrates the usage of the Te
 | <a name="module_key_pair_eks"></a> [key\_pair\_eks](#module\_key\_pair\_eks) | saturnops/keypair/aws | n/a |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | saturnops/vpc/aws | n/a |
 | <a name="module_eks"></a> [eks](#module\_eks) | saturnops/eks/aws | n/a |
-| <a name="module_managed_node_group_production"></a> [managed\_node\_group\_production](#module\_managed\_node\_group\_production) | saturnops/eks/aws//modules/managed-nodegroup | n/a |
-| <a name="module_farget_profle"></a> [farget\_profle](#module\_farget\_profle) | saturnops/eks/aws//modules/fargate-profile | n/a |
 
 ## Resources
 
